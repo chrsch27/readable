@@ -1,0 +1,336 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40px;
+}
+.App-Default {
+  width:600px;
+}
+
+.App-Default Link {
+  float:right;
+  margin-left: auto;
+}
+
+.App-header {
+  background-color: rgb(25, 48, 33);
+  padding: 20px;
+  color: white;
+  display:flex;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.App-data {
+  display: flex;
+}
+
+
+.category-list {
+  list-style-type:none;
+}
+
+.category-box {
+  width:100px;
+  justify-content: center;
+  background-color: darkgray;
+  color:white;
+}
+.post-list, .post-list li {
+  list-style-type:none;
+  text-align:left;
+  
+}
+.post-item {
+display: none; 
+  width:750px;
+
+
+}
+
+.post-item-header {
+  display: none;
+  width:750px;
+
+  font-weight: bold;
+}
+
+.post-author, .post-time, .post-category {
+  margin-right: 5px;
+  width:80px; 
+
+  
+}
+
+.post-voteScore {
+  margin-right: 5px;
+  width:70px;
+  text-align: center;
+
+  border-color: red;
+}
+
+.post-title {
+  margin: 0 5px 0 5px;
+  width: 350px;
+ 
+}
+.post-box {
+  width: 450px;
+  justify-content: left;
+  
+}
+.sortorderUp {
+  content: "\9650";
+}
+
+
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #3e8e41;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {background-color: #f1f1f1}
+
+.dropdown-show {display:block;}
+
+.postEdit-hide {display:none;}
+
+.postEdit-show {display:block;}
+
+.Post form {
+
+border-radius:10px;
+padding:10px;
+}
+.Post, .NewPost {
+  width:400px;
+  margin: 10px;
+}
+
+.PostHeader {
+  display:flex;
+  background-color:grey;
+  color:white;
+  border-radius:5px 5px 0 0;
+  font-size: small;
+}
+
+.lineflex {
+  display:flex;
+}
+
+.lineflex button, .lineflex div{
+  margin: 2px 2px;
+}
+
+.PostHeader div:last-child{
+  float:right;
+  margin-left:auto;
+  margin-right:5px;
+}
+
+.PostFooter {
+  display:flex;
+  background-color:grey;
+  color:white;
+  border-radius:0 0 5px 5px;
+  font-size: small;
+}
+
+.PostFooter div:last-child{
+  float:right;
+  margin-left:auto;
+  margin-right:5px;
+}
+.PostFooter button, .commentVote button{
+  font-size: 0.8em; padding: 2px 5px; 
+  font-family: Roboto, sans-serif;
+  font-weight: 200;
+  color:#1f6421;
+  border: 1px solid silver;
+  background-image: linear-gradient(to top, gainsboro 0%, white 90%);
+  border-radius: 5px;
+  margin-left:5px;
+
+}
+
+.Label{
+  text-align: left;
+  font-weight: bold;
+  margin:0 5px 0 5px;
+}
+
+.post-box Link {
+  float: right;
+}
+
+.PostLeftField{
+  text-align:left;
+  margin:0 5px 0 5px;
+}
+
+.postTitle, .postTitle Link{
+  background-color: #1f6421;;
+  color:white;
+  font-size: large;
+  font-weight:bold;
+  display:block;
+  padding:5px;
+
+}
+.postBody{
+  background-color: white;
+  color:grey;
+  border: solid 1px green;
+  min-height: 50px;
+}
+
+.postText{
+  display:block;
+  min-height:60px;
+  height:auto;
+
+}
+
+.App-PostComment {
+  margin: 5px 0 5px 0;
+
+}
+.comment-list {
+  list-style: none;
+}
+
+.commentHeader {
+  display:flex;
+  background-color:darkgrey;
+  color:white;
+  padding:5px; 
+}
+
+.commentHeader div:last-child{
+  float:right;
+  margin-left:auto;  
+}
+
+.comment-body{
+  background-color: white;
+  color:grey;
+  border: solid 1px darkgray;
+  min-height: 50px;
+}
+
+.comment-footer {
+  display:flex;
+  background-color:grey;
+  color:white;
+  text-align: right;
+  padding: 5px;
+}
+.comment-footer div:last-child{
+  float:right;
+  margin-left:auto;  
+}
+.comment-footer PlusIcon{
+  margin: 0 3px 0 3px;
+}
+
+
+.newCommentForm input[type="text"],
+.newCommentForm textarea,
+.newPostForm input[type="text"],
+.newPostForm textarea {
+  width: 100%; min-width: 100%;
+  box-sizing: border-box;
+  padding: 4px;
+  outline: none;
+}
+
+.newPostForm textarea {
+  min-height:80px;
+  resize: both;
+}
+.newPostForm {
+  text-align: left;
+}
+.newPostForm label{
+  text-align: left;
+  font-weight: bold;
+  font-size: small;
+}
+
+newPostForm div:last-child{
+  float:right;
+  margin-left:auto;  
+}
+
+input[type="submit"], button {
+  font-size: 1.3em; padding: 5px 12px; 
+  font-family: Roboto, sans-serif;
+  font-weight: 200;
+  color:#1f6421;
+  border: 1px solid silver;
+  background-image: linear-gradient(to top, gainsboro 0%, white 90%);
+  border-radius: 10px;
+}
+
+.category-button {
+  min-width:100px;
+  font-size: 1em;
+  color:white;
+  background-image: linear-gradient(to top, darkgreen 0%, #1f6421 90%);
+}
+
+.App-PostComment {
+  background-color: lightgray;
+  border: solid 1px gray;
+  border-radius: 5px;
+}
+
+.App-PostComment h2{
+  margin: 5px;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
