@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import logo from '../logo.svg';
 import '../App.css';
 import { Link, Redirect,withRouter} from 'react-router-dom'
-import {addNewPost} from '../actions'
+import {addNewPost} from './PostActions'
 
 
 import { connect } from 'react-redux'

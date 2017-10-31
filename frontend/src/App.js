@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Categories from './components/Categories'
-import Posts from './components/Posts'
-import NewPost from './components/NewPost'
-import PostDetail from './components/PostDetail'
-import {fetchCategories, fetchPosts} from './actions'
+import Categories from './category/Categories'
+import Posts from './post/Posts'
+import NewPost from './post/NewPost'
+import PostDetail from './post/PostDetail'
+import {fetchCategories} from './category/CategoryActions'
+import {fetchPosts} from './post/PostActions'
 import {connect} from 'react-redux'
 import { Route,  withRouter } from 'react-router-dom'
 import PlusIcon from 'react-icons/lib/fa/plus-square'

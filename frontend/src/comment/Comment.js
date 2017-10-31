@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import '../App.css';
 import { withRouter} from 'react-router-dom'
-import { editACommentVote, deleteCommentById } from '../actions'
+import * as actions from './CommentActions'
 import { connect } from 'react-redux'
 import TrashIcon from 'react-icons/lib/fa/trash-o'
 import { confirmAlert } from 'react-confirm-alert'; // Import
@@ -32,7 +32,7 @@ class Comment extends Component {
             childrenElement: () => <div>Custom UI</div>,       // Custom UI or Component
             confirmLabel: 'Confirm',                           // Text button confirm
             cancelLabel: 'Cancel',                             // Text button cancel
-            onConfirm: () => {this.props.deleteComment(this.props.comment.id);},    // Action after Confirm
+            onConfirm: () => {this.props.deleteCommentById(this.props.comment.id);},    // Action after Confirm
             onCancel: () => alert('Not deleted'),      // Action after Cancel
           })
     }
@@ -63,10 +63,10 @@ class Comment extends Component {
         )
     }
 }
-const mapDispatchToProps = dispatch => ({
+/*const mapDispatchToProps = dispatch => ({
     editACommentVote: (data) => dispatch(editACommentVote(data)),
-    deleteComment: (id)=> dispatch(deleteCommentById(id))
+    deleteCommentById: (id)=> dispatch(deleteCommentById(id))
        
-  });
+  });*/
 
-export default withRouter(connect(null,mapDispatchToProps)(Comment))
+export default withRouter(connect(null,actions)(Comment))

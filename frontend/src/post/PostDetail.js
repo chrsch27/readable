@@ -2,11 +2,12 @@ import React, { Component } from 'react'
 import '../App.css';
 import logo from '../logo.svg';
 import { Link, Redirect,withRouter} from 'react-router-dom'
-import { editAPost, getPostById, deletePostById, fetchPostComments, setCurrentPostId, editAPostVote} from '../actions'
+import { editAPost, getPostById, deletePostById, setCurrentPostId, editAPostVote} from './PostActions'
+import { fetchPostComments} from '../comment/CommentActions'
 import { connect } from 'react-redux'
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css' 
-import Comments from './Comments'
+import Comments from '../comment/Comments'
 import TrashIcon from 'react-icons/lib/fa/trash-o'
 
 class PostDetail extends Component {

@@ -1,0 +1,14 @@
+export const ADD_POST = 'ADD_POST';
+export const EDIT_POST = 'EDIT_POST';
+export const GET_POST = 'GET_POST';
+export const EDIT_POSTVOTE = 'EDIT_POSTVOTE';
+export const DELETE_POST = 'DELETE_POST';
+export const RECEIVE_CATEGORIES = 'RECEIVE_CATEGORIES';
+export const RECEIVE_POSTS = 'RECEIVE_POSTS';
+export const FILTER_POSTS = 'FILTER_POSTS';
+export const SET_POSTID = 'SET_POSTID';
+export const ADD_COMMENT = 'ADD_COMMENT';
+export const EDIT_COMMENT = 'EDIT_COMMENT';
+export const EDIT_COMMENTVOTE = 'EDIT_COMMENTVOTE';
+export const DELETE_COMMENT = 'DELETE_COMMENT';
+export const RECEIVE_COMMENTS = 'RECEIVE_COMMENTS';

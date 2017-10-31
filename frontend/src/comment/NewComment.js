@@ -3,7 +3,7 @@ import '../App.css';
 import { withRouter} from 'react-router-dom'
 //import { editAPost, getPostById, deletePostById } from '../actions'
 import { connect } from 'react-redux'
-import {addNewComment} from '../actions'
+import {addNewComment} from './CommentActions'
 
 
 

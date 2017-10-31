@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 //import { Route, Link } from 'react-router-dom'
-import {filterPostsByCategory} from '../actions'
+import {filterPostsByCategory} from '../post/PostActions'
 
 
 
@@ -12,7 +12,6 @@ class Categories extends Component {
   }
 
   render(){
-    console.log('Props', this.props)
     return (
       <div className='category-box'>
         <h3 className='category-header'>Categories</h3>
@@ -34,11 +33,9 @@ class Categories extends Component {
 
 //<Link to={'/'+ item.name} className="open-search-link">{item.name}</Link>
 
-function mapStateToProps(state){
-  console.log('state2props', state.categoryReducer.categories);
+function mapStateToProps({categoryReducer}){
   return {
-    categories: state.categoryReducer.categories,
-    name:'tyler'
+    categories: categoryReducer.categories
   }
 }
 

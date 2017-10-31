@@ -17,13 +17,11 @@ class Comments extends Component {
                 <ul className='comment-list'>
                 { this.props.PostComments && this.props.PostComments
                 .sort( (a,b)=> ( b.voteScore -a.voteScore))
-                .map((item) => {
-                    if (item) {
-                    return (<li key={item.id} className='comment'>
+                .map((item) => (item
+                        ?<li key={item.id} className='comment'>
                             <Comment comment={item}/>
-                            </li>
-                    )
-                    }else return(<div></div>)}
+                        </li>
+                       :<div></div>)
                 )}
                 </ul>
             </div>
@@ -31,9 +29,9 @@ class Comments extends Component {
     }
 }
 
-function mapStateToProps (state){
+function mapStateToProps ({commentReducer}){
     return {
-        PostComments: state.commentReducer.comments
+        PostComments: commentReducer.comments
     }
 }
 export default withRouter(connect(mapStateToProps)(Comments))

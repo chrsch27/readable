@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import '../App.css';
 import { Link, withRouter} from 'react-router-dom'
-import { deletePostById, editAPostVote} from '../actions'
+import { deletePostById, editAPostVote} from './PostActions'
 import { connect } from 'react-redux'
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css' 
