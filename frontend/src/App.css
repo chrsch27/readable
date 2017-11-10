@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  font-family:"Segoe UI Web (West European)", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+  margin-left:5px;
 }
 
 .App-logo {
@@ -11,7 +13,7 @@
 }
 
 .App-Default Link {
-  float:right;
+  float:left;
   margin-left: auto;
 }
 
@@ -34,9 +36,16 @@
   display: flex;
 }
 
+.BackArrow, .NewPost Link {
+  text-align: center;
+  float:center;
+  align-content: center;
+}
 
 .category-list {
   list-style-type:none;
+  padding-left:0;
+  font-family: "Segoe UI";
 }
 
 .category-box {
@@ -48,6 +57,7 @@
 .post-list, .post-list li {
   list-style-type:none;
   text-align:left;
+  padding-left:0;
   
 }
 .post-item {
@@ -85,9 +95,7 @@ display: none;
  
 }
 .post-box {
-  width: 450px;
-  justify-content: left;
-  
+  width: 450px; 
 }
 .sortorderUp {
   content: "\9650";
@@ -142,9 +150,9 @@ display: none;
 border-radius:10px;
 padding:10px;
 }
-.Post, .NewPost {
+.Post, .NewPost, .PostDetail, .Comment {
   width:400px;
-  margin: 10px;
+  margin: 10px 0 10px 0;
 }
 
 .PostHeader {
@@ -153,6 +161,10 @@ padding:10px;
   color:white;
   border-radius:5px 5px 0 0;
   font-size: small;
+}
+
+.post-order {
+  margin: 0 0 0 40px;
 }
 
 .lineflex {
@@ -169,22 +181,38 @@ padding:10px;
   margin-right:5px;
 }
 
-.PostFooter {
+.PostFooter, .PostFooterTop {
   display:flex;
   background-color:grey;
   color:white;
-  border-radius:0 0 5px 5px;
   font-size: small;
+  padding:2px;
 }
 
-.PostFooter div:last-child{
+.PostFooter {
+  border-radius:0 0 5px 5px;
+  background-color: lightgray;
+  color: black;
+}
+
+.divLeftRight {
+  display:flex;
+  padding: 0 1px 2px 1px;
+}
+
+.divLeftRight div:last-child, .PostFooter div:last-child, .PostFooterTop div:last-child{
   float:right;
   margin-left:auto;
   margin-right:5px;
 }
-.PostFooter button, .commentVote button{
-  font-size: 0.8em; padding: 2px 5px; 
-  font-family: Roboto, sans-serif;
+
+.divpad, .divLeftRight div, .divLeftRight div label, .divLeftRight div div, .divLeftRight div IconButton, .divLeftRight div Link {
+  padding: 2px;
+}
+
+.PostFooter button, .commentVote button,.PostFooterTop button {
+  font-size: 0.8em; 
+  padding: 2px 5px; 
   font-weight: 200;
   color:#1f6421;
   border: 1px solid silver;
@@ -237,7 +265,9 @@ padding:10px;
 
 }
 .comment-list {
-  list-style: none;
+  list-style-type:none;
+  text-align:left;
+  padding-left:0;
 }
 
 .commentHeader {
@@ -274,7 +304,10 @@ padding:10px;
   margin: 0 3px 0 3px;
 }
 
-
+.Post input[type="text"],
+.Post textarea,
+.Comment input[type="text"],
+.Comment textarea,
 .newCommentForm input[type="text"],
 .newCommentForm textarea,
 .newPostForm input[type="text"],
@@ -285,7 +318,8 @@ padding:10px;
   outline: none;
 }
 
-.newPostForm textarea {
+.newPostForm textarea, 
+.Post textarea {
   min-height:80px;
   resize: both;
 }
@@ -303,9 +337,9 @@ newPostForm div:last-child{
   margin-left:auto;  
 }
 
-input[type="submit"], button {
+input[type="submit"], .button {
   font-size: 1.3em; padding: 5px 12px; 
-  font-family: Roboto, sans-serif;
+
   font-weight: 200;
   color:#1f6421;
   border: 1px solid silver;
@@ -328,6 +362,12 @@ input[type="submit"], button {
 
 .App-PostComment h2{
   margin: 5px;
+}
+.cursor {
+  display: inline;
+}
+.cursor:hover{ 
+  cursor:pointer;
 }
 
 @keyframes App-logo-spin {

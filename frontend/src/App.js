@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import MyAppBar from './app/MyAppBar'
 import Categories from './category/Categories'
 import Posts from './post/Posts'
 import NewPost from './post/NewPost'
@@ -8,10 +8,18 @@ import PostDetail from './post/PostDetail'
 import {fetchCategories} from './category/CategoryActions'
 import {fetchPosts} from './post/PostActions'
 import {connect} from 'react-redux'
-import { Route,  withRouter } from 'react-router-dom'
-import PlusIcon from 'react-icons/lib/fa/plus-square'
+import { Route,  withRouter, Switch } from 'react-router-dom'
+
+import { Fabric } from 'office-ui-fabric-react/lib/Fabric';
+import { initializeIcons } from '@uifabric/icons';
+
+// Register icons and pull the fonts from the default SharePoint cdn:
+initializeIcons();
+
+
 
 class App extends Component {
+ 
 
   componentDidMount(){
     this.props.fetchCategories();
@@ -20,37 +28,40 @@ class App extends Component {
 
 
   render() {
-    return (
 
-      <div className="App">
-        <Route exact path="/"  render={() => {
-          return(
-            <div className="App-Default">
-              <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <h1 className="App-title">Readable</h1>
-              </header>
-              <div className="App-data">
-                <Categories/>
-                <Posts sortField="voteScore" sortOrder="desc"/>
+    return (
+      <Fabric>
+        <div className='App'>
+          <Switch>
+            <Route exact path="/"  render={() => (
+              <div className="ms-Grid App-Default">
+              <MyAppBar title="readable show all posts"/>
+
+                <div className="ms-Grid-row App-data">
+                  <div className="ms-Grid-col ms-sm6 ms-md4 ms-lg3">
+                    <Categories/>
+                  </div>
+                  <div className="ms-Grid-col ms-sm6 ms-md8 ms-lg9">
+                    <Posts sortField="voteScore" sortOrder="desc"/>
+                  </div>
+                </div>
               </div>
-            </div>
-          )}}/>
-          <Route path="/NewPost"  render={() => {
-            return(
-              <div className="AppNewPost">
-                <NewPost/>
-              </div>
-            )
-          }}/>
-          <Route path='/Post/:id'  render={() => {
-            return(
-              <div className="AppNewPost">
-                <PostDetail/>
-              </div>
-            )
-          }}/>
-      </div>
+            )}/>
+            <Route exact path="/NewPost"  render={() => (<NewPost/>)}/>
+            <Route exact path='/Post/:id'  render={() => (<PostDetail/>)}/>
+            <Route exact path='/:category'  render={() => (
+                <div className="App-Default">
+                  <MyAppBar title="readable show all posts"/>
+                  <div className="App-data">
+                    <Categories/>
+                    <Posts sortField="voteScore" sortOrder="desc"/>
+                  </div>
+                </div>
+              )
+            }/>
+          </Switch>
+        </div>
+      </Fabric>
     );
   }
 }

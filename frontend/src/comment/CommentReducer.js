@@ -18,7 +18,8 @@ export default function commentReducer (state={}, action){
             comments: state.comments.map(comment => {
                 if (comment.id.toString() === action.comment.id)
                     return { ...comment,
-                        
+                        author: action.comment.author,
+                        body: action.comment.body                        
                     }
                     else return comment
                 })

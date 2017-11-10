@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-//import { Route, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import {filterPostsByCategory} from '../post/PostActions'
+import { DefaultButton } from 'office-ui-fabric-react/lib/Button';
 
 
 
@@ -13,15 +14,15 @@ class Categories extends Component {
 
   render(){
     return (
-      <div className='category-box'>
+      <div className='ms-Grid'>
         <h3 className='category-header'>Categories</h3>
         <ul className='category-list'>
           <li key='All'> 
-            <button className='category-button'  onClick={() => this.props.filterPosts('All')}>All Posts</button>
+            <Link to={"/"}><DefaultButton text="All Posts" /></Link>
           </li>
           {this.props.categories && this.props.categories.map((item)=>(
             <li key={item.name}>  
-              <button className='category-button'  onClick={() => this.props.filterPosts(item.name)}>{item.name}</button>
+              <Link to={"/"+item.name}><DefaultButton text={item.name}/></Link>
             </li>
             )
           )}
@@ -30,8 +31,6 @@ class Categories extends Component {
     )
   }
 }
-
-//<Link to={'/'+ item.name} className="open-search-link">{item.name}</Link>
 
 function mapStateToProps({categoryReducer}){
   return {

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import '../App.css';
 import { withRouter} from 'react-router-dom'
-//import { editAPost, getPostById, deletePostById } from '../actions'
 import { connect } from 'react-redux'
 import Comment from './Comment'
 import NewComment from './NewComment'
@@ -13,13 +12,13 @@ class Comments extends Component {
         return (
             <div className='App-PostComments'>
                 <NewComment/>
-                <label>Comments: </label>
+                <label className="ms-font-xl">Comments: </label>
                 <ul className='comment-list'>
                 { this.props.PostComments && this.props.PostComments
                 .sort( (a,b)=> ( b.voteScore -a.voteScore))
                 .map((item) => (item
                         ?<li key={item.id} className='comment'>
-                            <Comment comment={item}/>
+                            <Comment comment={item} canBeEdited="true"/>
                         </li>
                        :<div></div>)
                 )}

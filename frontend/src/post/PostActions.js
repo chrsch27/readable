@@ -3,6 +3,7 @@ import * as apiData from '../utils/api'
 import {
     RECEIVE_POSTS,
     GET_POST,
+    GET_POSTBYID,
     EDIT_POST,
     EDIT_POSTVOTE,
     ADD_POST,
@@ -13,30 +14,29 @@ import {
   
   export const fetchPosts = () => dispatch => {
   
-      apiData.getPosts().then((data) => {console.log('fetchpos',data); dispatch(receivePosts(data))})
+      apiData.getPosts().then((data) => {dispatch(receivePosts(data))})
   }
   
   
   export const addNewPost = (postdata) => dispatch => {
-      apiData.addPost(postdata).then((res)=>{console.log("addpostdata",postdata); dispatch(addPost(postdata))})
+      apiData.addPost(postdata).then((res)=>{(dispatch(addPost(postdata)))})
   }
   
   
   
   export const editAPost = (postdata) => dispatch => {
-      apiData.editPost(postdata).then((res)=>{console.log("postdata",res); dispatch(editPost(postdata))})
+      apiData.editPost(postdata).then((res)=>{ dispatch(editPost(postdata))})
   }
   
   export const editAPostVote = (data) => dispatch => {
-      apiData.editPostVote(data).then((res) => {console.log("editAPostVote",res); dispatch(editPostVote(data))})
+      apiData.editPostVote(data).then((res) => { dispatch(editPostVote(data))})
   }
   
   export const getPostById =(id) => dispatch => {
-      apiData.getPostById(id).then((data)=>{console.log("getPostById",data);dispatch(getPost(data))})
+      apiData.getPostById(id).then((data)=>{dispatch(getPost(data))})
   }
   
   export const deletePostById =(id) => dispatch => {
-      //dispatch(deletePost(id));
       apiData.deletePost(id).then((data)=>{dispatch(deletePost(id))})
   }
   
@@ -46,9 +46,14 @@ import {
     posts
   });
 
-  const getPost = post => ({
+  export const getPost = post => ({
     type: GET_POST,
     post
+  });
+
+  export const getPostFromId = id => ({
+    type: GET_POSTBYID,
+    id
   });
   
 const editPost = post => ({

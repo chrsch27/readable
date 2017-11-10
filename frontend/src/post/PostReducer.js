@@ -3,13 +3,17 @@ import {
     EDIT_POST,
     EDIT_POSTVOTE,
     GET_POST,
+    GET_POSTBYID,
     DELETE_POST,
     RECEIVE_POSTS,
     SET_POSTID,
-    FILTER_POSTS
+    FILTER_POSTS,
+    ADD_COMMENT,
+    DELETE_COMMENT
  } from '../actions/types'
 
 export function postReducer (state={}, action){
+    console.log('postreducer start', action.type)
     
   switch(action.type) {
     case ADD_POST:
@@ -28,11 +32,9 @@ export function postReducer (state={}, action){
                 })
         };
     case EDIT_POSTVOTE: 
-        console.log('reducer post vote', action)
         let value = 0;
         if (action.data.option==='upVote') value=1;
         if (action.data.option==='downVote') value=-1;
-        console.log('reducer post vote', value)
         return { ...state,
                 posts: state.posts.map(post => {
                 if (post.id.toString() === action.data.id)
@@ -46,7 +48,6 @@ export function postReducer (state={}, action){
                 }
         };
     case DELETE_POST:
-        console.log('deletPost', action)
       return { ...state,
                 posts: state.posts.filter(post => (post.id !== action.id))
             }
@@ -54,15 +55,36 @@ export function postReducer (state={}, action){
     case RECEIVE_POSTS:
       return {
         ...state,
-        posts:action.posts
+        posts:action.posts,
+       // post:action.posts[0]
       }
     
     case GET_POST:
-      console.log('GetPost',action)
       return {
         ...state,
         post:action.post
       }
+
+    case GET_POSTBYID:
+      console.log('Gtposbyid',state, action.id)
+      return {
+        ...state,
+        post: state.posts.filter(post => (post.id === action.id))[0]
+      }
+
+      case ADD_COMMENT:
+      return {
+        ...state,
+        post:{...state.post,
+                commentCount: state.post.commentCount+=1}
+      }
+      case DELETE_COMMENT:
+      return {
+        ...state,
+        post:{...state.post,
+                commentCount: state.post.commentCount-=1}
+      }
+
 
       case SET_POSTID:
       return {
@@ -70,7 +92,9 @@ export function postReducer (state={}, action){
           CurrentPostId:action.id
       }
     default:
+    console.log ('reducer default', action.type)
       return state;
+
   }
 }
 

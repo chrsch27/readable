@@ -1,6 +1,7 @@
 export const ADD_POST = 'ADD_POST';
 export const EDIT_POST = 'EDIT_POST';
 export const GET_POST = 'GET_POST';
+export const GET_POSTBYID = 'GET_POSTBYID';
 export const EDIT_POSTVOTE = 'EDIT_POSTVOTE';
 export const DELETE_POST = 'DELETE_POST';
 export const RECEIVE_CATEGORIES = 'RECEIVE_CATEGORIES';
