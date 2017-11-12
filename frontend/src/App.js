@@ -59,6 +59,8 @@ class App extends Component {
                 </div>
               )
             }/>
+            <Route exact path='/:category/:id'  render={() => (<PostDetail/>)}/>
+            
           </Switch>
         </div>
       </Fabric>
