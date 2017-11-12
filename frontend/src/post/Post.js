@@ -97,7 +97,7 @@ class Post extends Component {
         }
         if (this.state.redirectToDetail){
             return (
-                <Redirect to={"/Post/"+ this.props.post.id}/>
+                <Redirect to={"/" + this.props.post.category +"/"+ this.props.post.id}/>
             )
         }
         return(
